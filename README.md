@@ -1,7 +1,7 @@
-[![CI](https://github.com/renjfk/opencode-voice/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/renjfk/opencode-voice/actions/workflows/ci.yml)
+[![CI](https://github.com/dldkhy/opencode-voice/actions/workflows/ci.yml/badge.svg?branch=feat/opencode-v2)](https://github.com/dldkhy/opencode-voice/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![npm](https://img.shields.io/npm/v/@renjfk/opencode-voice)](https://www.npmjs.com/package/@renjfk/opencode-voice)
-[![Downloads](https://img.shields.io/npm/dm/@renjfk/opencode-voice)](https://www.npmjs.com/package/@renjfk/opencode-voice)
+[![npm](https://img.shields.io/npm/v/@dldkhy/opencode-voice)](https://www.npmjs.com/package/@dldkhy/opencode-voice)
+[![Downloads](https://img.shields.io/npm/dm/@dldkhy/opencode-voice)](https://www.npmjs.com/package/@dldkhy/opencode-voice)
 
 # opencode-voice
 
@@ -48,7 +48,7 @@ it doesn't exist). You must configure at least `endpoint` and `model`:
 }
 ```
 
-Use a package name (`@renjfk/opencode-voice`) or a local path
+Use a package name (`@dldkhy/opencode-voice`) or a local path
 (`/path/to/opencode-voice`) in `package`. Local paths are loaded straight from
 disk, so edits are picked up on save.
 
@@ -58,7 +58,7 @@ If you install from npm and OpenCode keeps using an older published version of
 the plugin after an update, clear the cached package and restart OpenCode:
 
 ```bash
-rm -rf ~/.cache/opencode/packages/@renjfk/
+rm -rf ~/.cache/opencode/packages/@dldkhy/
 ```
 
 ## Prerequisites
@@ -250,7 +250,7 @@ option is optional - omit it for unauthenticated endpoints like Ollama.
 {
   "plugins": [
     {
-      "package": "@renjfk/opencode-voice",
+      "package": "@dldkhy/opencode-voice",
       "options": {
         "endpoint": "https://api.anthropic.com/v1",
         "model": "claude-haiku-4-5",
@@ -267,7 +267,7 @@ For unauthenticated local endpoints (e.g. Ollama):
 {
   "plugins": [
     {
-      "package": "@renjfk/opencode-voice",
+      "package": "@dldkhy/opencode-voice",
       "options": {
         "endpoint": "http://localhost:11434/v1",
         "model": "llama3.2"
@@ -312,7 +312,7 @@ plugin on a machine without whisper-cpp installed.
 {
   "plugins": [
     {
-      "package": "@renjfk/opencode-voice",
+      "package": "@dldkhy/opencode-voice",
       "options": {
         "sttEndpoint": "http://127.0.0.1:8000/v1",
         "sttModel": "whisper-large-v3-turbo",
@@ -339,7 +339,7 @@ up or how responses are spoken.
 {
   "plugins": [
     {
-      "package": "@renjfk/opencode-voice",
+      "package": "@dldkhy/opencode-voice",
       "options": {
         "sttPrompt": "~/.config/opencode/stt-prompt.md",
         "ttsAutoPrompt": "~/.config/opencode/tts-auto-prompt.md",
@@ -495,3 +495,17 @@ Manual releases via opencode; see [RELEASE_PROCESS.md](RELEASE_PROCESS.md).
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Attribution
+
+This package is a maintained fork of [renjfk/opencode-voice](https://github.com/renjfk/opencode-voice)
+by Soner Koksal, also MIT licensed. The original copyright notice is preserved
+in [LICENSE](LICENSE).
+
+This fork exists because upstream has not merged OpenCode V2 support
+(see [PR #25](https://github.com/renjfk/opencode-voice/pull/25)). Changes here:
+
+- Port to the OpenCode V2 plugin API (upstream V1 modules are rejected by V2)
+- Published as `@dldkhy/opencode-voice` so it does not shadow the upstream name
+
+If upstream merges V2 support, prefer the upstream package.
